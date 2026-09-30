@@ -83,7 +83,7 @@ const usersFile = path.join(
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static(uploadDir));
 
 app.use(express.urlencoded({ extended: true }));
 
