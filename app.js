@@ -59,7 +59,7 @@ const upload = multer({
 
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // File paths
 const reportsFile = path.join(
@@ -403,12 +403,8 @@ app.get("/report", requireLogin, (req, res) => {
 
         const reports = getReports();
 
-const nextId = reports.length > 0
-    ? Math.max(...reports.map(report => Number(report.id) || 0)) + 1
-    : 1;
-
-const report = {
-    id: nextId,
+        const report = {
+            id: reports.length + 1,
 
             userId: req.session.user.id,
 
