@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report Submitted | CleanCity Connect</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="success-page">
+
+    <!-- Navigation -->
+    <nav class="success-nav">
+
+        <a href="/" class="success-brand">
+            <span>🌿</span>
+            <span>CleanCity Connect</span>
+        </a>
+
+        <div class="success-nav-actions">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Success Content -->
+    <main class="success-main">
+
+        <div class="success-card">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <span class="success-label">
+                REPORT SUBMITTED
+            </span>
+
+            <h1>
+                Report Submitted Successfully!
+            </h1>
+
+            <p class="success-message">
+                Thank you, <strong><%= report.name %></strong>.
+                Your complaint has been received and will be reviewed by the concerned team.
+            </p>
+
+
+            <!-- Report Information -->
+            <div class="success-details">
+
+                <div class="success-detail-item">
+                    <span class="success-detail-icon">🆔</span>
+
+                    <div>
+                        <small>Report ID</small>
+                        <strong>#<%= report.id %></strong>
+                    </div>
+                </div>
+
+
+                <div class="success-detail-item">
+                    <span class="success-detail-icon">📋</span>
+
+                    <div>
+                        <small>Current Status</small>
+
+                        <strong class="success-status">
+                            <%= report.status %>
+                        </strong>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <p class="success-note">
+                💡 You can track your report and its status from your dashboard.
+            </p>
+
+
+            <!-- Buttons -->
+            <div class="success-actions">
+
+                <a href="/dashboard" class="success-dashboard-button">
+                    View Dashboard →
+                </a>
+
+                <a href="/" class="success-home-button">
+                    Back to Homepage
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="success-footer">
+    <p>
+        © <%= new Date().getFullYear() %> CleanCity Connect
+    </p>
+    <p>
+        Building cleaner and smarter communities.
+    </p>
+</footer>
+
+</body>
+</html>

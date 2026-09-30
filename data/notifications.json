@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1789657709300,
+    "userId": 2,
+    "reportId": 3,
+    "message": "Your report #3 status has been changed to In Progress.",
+    "createdAt": "17/9/2026, 8:38:29 pm",
+    "read": false
+  },
+  {
+    "id": 1789658047736,
+    "userId": 1,
+    "reportId": 4,
+    "message": "Your report #4 status has been changed to In Progress.",
+    "createdAt": "17/9/2026, 8:44:07 pm",
+    "read": true
+  },
+  {
+    "id": 1789658420239,
+    "userId": 1,
+    "reportId": 2,
+    "message": "Admin added a remark to your report #2.",
+    "createdAt": "17/9/2026, 8:50:20 pm",
+    "read": true
+  },
+  {
+    "id": 1789659357379,
+    "userId": 2,
+    "reportId": 3,
+    "message": "Your report #3 status has been changed to In Progress.",
+    "createdAt": "17/9/2026, 9:05:57 pm",
+    "read": false
+  },
+  {
+    "id": 1789753237142,
+    "userId": 1,
+    "reportId": 4,
+    "message": "Your report #4 status has been changed to Pending.",
+    "createdAt": "18/9/2026, 11:10:37 pm",
+    "read": true
+  },
+  {
+    "id": 1789844431079,
+    "userId": 1,
+    "reportId": 6,
+    "message": "Your report #6 status has been changed to Pending.",
+    "createdAt": "20/9/2026, 12:30:31 am",
+    "read": false
+  },
+  {
+    "id": 1789844438760,
+    "userId": 1,
+    "reportId": 6,
+    "message": "Your report #6 status has been changed to Resolved.",
+    "createdAt": "20/9/2026, 12:30:38 am",
+    "read": false
+  },
+  {
+    "id": 1790693874332,
+    "userId": 1,
+    "reportId": 4,
+    "message": "Admin added a remark to your report #4.",
+    "createdAt": "29/9/2026, 8:27:54 pm",
+    "read": false
+  },
+  {
+    "id": 1790694183340,
+    "userId": 1,
+    "reportId": 4,
+    "message": "Admin added a remark to your report #4.",
+    "createdAt": "29/9/2026, 8:33:03 pm",
+    "read": true
+  },
+  {
+    "id": 1790706853910,
+    "userId": 1,
+    "reportId": 9,
+    "message": "Your report #9 status has been changed to Pending.",
+    "createdAt": "30/9/2026, 12:04:13 am",
+    "read": false
+  },
+  {
+    "id": 1790706861315,
+    "userId": 1,
+    "reportId": 9,
+    "message": "Your report #9 status has been changed to In Progress.",
+    "createdAt": "30/9/2026, 12:04:21 am",
+    "read": false
+  }
+]

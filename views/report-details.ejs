@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report Details | CleanCity Connect</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="admin-details-page">
+
+    <!-- Navigation -->
+    <nav class="admin-details-nav">
+
+        <a href="/admin" class="admin-details-brand">
+            <span>🌿</span>
+            <span>CleanCity Connect</span>
+        </a>
+
+        <div class="admin-details-nav-links">
+            <a href="/admin">Admin Dashboard</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout" class="admin-details-logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main -->
+    <main class="admin-details-main">
+
+        <div class="admin-details-wrapper">
+
+            <!-- Heading -->
+            <div class="admin-details-heading">
+
+                <div class="admin-details-icon">
+                    📋
+                </div>
+
+                <div>
+                    <span>ADMIN PANEL</span>
+
+                    <h1>Report Details</h1>
+
+                    <p>
+                        Review the complete information submitted by the citizen.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Report Overview -->
+            <div class="admin-details-card">
+
+                <div class="admin-details-card-header">
+
+                    <div>
+                        <h2>Report Information</h2>
+                        <p>Basic information about this complaint.</p>
+                    </div>
+
+                    <span class="admin-report-status">
+                        <%= report.status %>
+                    </span>
+
+                </div>
+
+
+                <div class="admin-details-grid">
+
+                    <div class="admin-detail-item">
+                        <span class="admin-detail-item-icon">🆔</span>
+
+                        <div>
+                            <small>Report ID</small>
+                            <strong>#<%= report.id %></strong>
+                        </div>
+                    </div>
+
+
+                    <div class="admin-detail-item">
+                        <span class="admin-detail-item-icon">🗂️</span>
+
+                        <div>
+                            <small>Category</small>
+                            <strong><%= report.category %></strong>
+                        </div>
+                    </div>
+
+
+                    <div class="admin-detail-item">
+                        <span class="admin-detail-item-icon">📍</span>
+
+                        <div>
+                            <small>Location</small>
+                            <strong><%= report.location %></strong>
+                        </div>
+                    </div>
+
+
+                    <div class="admin-detail-item">
+                        <span class="admin-detail-item-icon">📅</span>
+
+                        <div>
+                            <small>Submitted On</small>
+                            <strong>
+                                <%= report.createdAt || "Not available" %>
+                            </strong>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Description -->
+                <div class="admin-description-box">
+
+                    <h3>📝 Description</h3>
+
+                    <p>
+                        <%= report.description %>
+                    </p>
+
+                </div>
+
+
+                <!-- Uploaded Image -->
+                <% if (report.image) { %>
+
+                    <div class="admin-image-section">
+
+                        <h3>📷 Uploaded Image</h3>
+
+                        <img
+                            src="<%= report.image %>"
+                            alt="Reported issue"
+                            class="admin-report-image"
+                        >
+
+                    </div>
+
+                <% } %>
+
+            </div>
+
+
+            <!-- Citizen Information -->
+            <div class="admin-details-card">
+
+                <div class="admin-details-card-header">
+
+                    <div>
+                        <h2>Citizen Information</h2>
+                        <p>Details of the person who submitted this report.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="admin-citizen-grid">
+
+                    <div class="admin-citizen-item">
+                        <span>👤</span>
+
+                        <div>
+                            <small>Citizen Name</small>
+
+                            <strong>
+                                <%= report.name || "Not available" %>
+                            </strong>
+                        </div>
+                    </div>
+
+
+                    <div class="admin-citizen-item">
+                        <span>✉️</span>
+
+                        <div>
+                            <small>Citizen Email</small>
+
+                            <strong>
+                                <%= report.email || "Not available" %>
+                            </strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Back Button -->
+            <div class="admin-details-back">
+
+                <a href="/admin" class="admin-details-back-button">
+                    ← Back to Admin Dashboard
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="admin-details-footer">
+
+        <p>© 2026 CleanCity Connect</p>
+
+        <p>Admin Management Panel</p>
+
+    </footer>
+
+</body>
+</html>

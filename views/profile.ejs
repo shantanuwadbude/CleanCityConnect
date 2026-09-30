@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | CleanCity Connect</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="auth-page">
+
+    <!-- Navigation -->
+    <nav class="auth-nav">
+
+        <div class="auth-brand">
+
+            <div class="brand-logo">
+                🌿
+            </div>
+
+            <h2>
+                <span>CleanCity</span> Connect
+            </h2>
+
+        </div>
+
+
+        <div class="auth-nav-links">
+
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#features">Features</a>
+
+        </div>
+
+
+        <div class="auth-nav-actions">
+
+            <% if (currentUser) { %>
+
+                <% if (currentUser.role === "admin") { %>
+
+                    <a href="/admin">
+                        Admin Dashboard
+                    </a>
+
+                <% } else { %>
+
+                    <a href="/dashboard">
+                        Dashboard
+                    </a>
+
+                    <a href="/profile">
+                        Profile
+                    </a>
+
+                    <a href="/report">
+                        Report Issue
+                    </a>
+
+                <% } %>
+
+                <a href="/logout" class="nav-login-button">
+                    Logout
+                </a>
+
+            <% } else { %>
+
+                <a href="/login" class="nav-login-button">
+                    Login
+                </a>
+
+                <a href="/register" class="nav-register-button">
+                    Register
+                </a>
+
+            <% } %>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Profile -->
+    <main class="profile-page">
+
+        <div class="profile-card-modern">
+
+            <div class="profile-avatar">
+                👤
+            </div>
+
+            <h1>My Profile</h1>
+
+            <p class="profile-welcome">
+                Manage your CleanCity Connect account.
+            </p>
+
+
+            <!-- Profile Information -->
+            <div class="profile-info">
+
+                <div class="profile-info-item">
+
+                    <span class="profile-info-icon">
+                        👤
+                    </span>
+
+                    <div>
+                        <small>Full Name</small>
+                        <strong>
+                            <%= user.name %>
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="profile-info-item">
+
+                    <span class="profile-info-icon">
+                        ✉️
+                    </span>
+
+                    <div>
+                        <small>Email Address</small>
+                        <strong>
+                            <%= user.email %>
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="profile-info-item">
+
+                    <span class="profile-info-icon">
+                        🛡️
+                    </span>
+
+                    <div>
+                        <small>Account Role</small>
+                        <strong>
+                            <%= user.role %>
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="profile-info-item">
+
+                    <span class="profile-info-icon">
+                        📋
+                    </span>
+
+                    <div>
+                        <small>Total Reports</small>
+                        <strong>
+                            <%= totalReports %>
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Actions -->
+            <div class="profile-actions">
+
+                <a href="/profile/edit" class="profile-edit-button">
+                    ✏️ Edit Profile
+                </a>
+
+                <a href="/change-password" class="profile-password-button">
+                    🔐 Change Password
+                </a>
+
+                <a href="/dashboard" class="profile-back-button">
+                    ← Back to Dashboard
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

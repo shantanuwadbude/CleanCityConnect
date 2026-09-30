@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Citizen Dashboard | CleanCity Connect</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body class="citizen-dashboard-page">
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="citizen-dashboard-nav">
+
+        <a href="/" class="citizen-dashboard-brand">
+
+            <span class="citizen-dashboard-brand-icon">🌿</span>
+
+            <span>CleanCity Connect</span>
+
+        </a>
+
+
+        <nav class="citizen-dashboard-nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/#about">About</a>
+
+            <a href="/#features">Features</a>
+
+            <a href="/dashboard" class="citizen-dashboard-active">
+                Dashboard
+            </a>
+
+            <a href="/profile">Profile</a>
+
+            <a href="/report">Report Issue</a>
+
+            <a href="/logout" class="citizen-dashboard-logout">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="citizen-dashboard-main">
+
+        <div class="citizen-dashboard-wrapper">
+
+
+            <!-- ================= HEADING ================= -->
+
+            <section class="citizen-dashboard-heading">
+
+                <div>
+
+                    <span class="citizen-dashboard-eyebrow">
+                        🌱 Citizen Portal
+                    </span>
+
+                    <h1>
+                        Welcome, <%= user.name %>!
+                    </h1>
+
+                    <p>
+                        Track and manage the status of your submitted complaints.
+                    </p>
+
+                </div>
+
+                <a href="/report" class="citizen-dashboard-report-button">
+                    + Report New Issue
+                </a>
+
+            </section>
+
+
+            <!-- ================= STATISTICS ================= -->
+
+            <section class="citizen-dashboard-stats">
+
+                <div class="citizen-stat-card total">
+
+                    <div class="citizen-stat-icon">
+                        📋
+                    </div>
+
+                    <div>
+
+                        <span>Total Reports</span>
+
+                        <strong>
+                            <%= totalReports %>
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="citizen-stat-card pending">
+
+                    <div class="citizen-stat-icon">
+                        ⏳
+                    </div>
+
+                    <div>
+
+                        <span>Pending</span>
+
+                        <strong>
+                            <%= pendingReports %>
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="citizen-stat-card progress">
+
+                    <div class="citizen-stat-icon">
+                        🔄
+                    </div>
+
+                    <div>
+
+                        <span>In Progress</span>
+
+                        <strong>
+                            <%= inProgressReports %>
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="citizen-stat-card resolved">
+
+                    <div class="citizen-stat-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>Resolved</span>
+
+                        <strong>
+                            <%= resolvedReports %>
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= NOTIFICATIONS ================= -->
+
+            <% if (notifications && notifications.length > 0) { %>
+
+                <section class="citizen-notifications-card">
+
+                    <div class="citizen-section-header">
+
+                        <div>
+
+                            <span class="citizen-section-icon">
+                                🔔
+                            </span>
+
+                            <div>
+
+                                <h2>Notifications</h2>
+
+                                <p>
+                                    Updates about your reports
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <%
+                            const unreadCount =
+                            notifications.filter(notification => !notification.read).length;
+                        %>
+
+                        <% if (unreadCount > 0) { %>
+
+                            <span class="citizen-unread-badge">
+                                <%= unreadCount %> unread
+                            </span>
+
+                        <% } %>
+
+                    </div>
+
+
+                    <div class="citizen-notification-list">
+
+                        <% notifications.slice().reverse().forEach(notification => { %>
+
+                            <a
+                                href="/notification/<%= notification.id %>"
+                                class="citizen-notification-item <%= notification.read ? 'read' : 'unread' %>"
+                            >
+
+                                <div class="citizen-notification-icon">
+
+                                    <%= notification.read ? "✓" : "!" %>
+
+                                </div>
+
+                                <div class="citizen-notification-content">
+
+                                    <p>
+                                        <%= notification.message %>
+                                    </p>
+
+                                    <small>
+                                        <%= notification.createdAt %>
+                                    </small>
+
+                                </div>
+
+                                <span class="citizen-notification-arrow">
+                                    →
+                                </span>
+
+                            </a>
+
+                        <% }) %>
+
+                    </div>
+
+                </section>
+
+            <% } %>
+
+
+            <!-- ================= REPORTS ================= -->
+
+            <% if (reports.length === 0) { %>
+
+                <section class="citizen-empty-card">
+
+                    <div class="citizen-empty-icon">
+                        📋
+                    </div>
+
+                    <h2>No Reports Yet</h2>
+
+                    <p>
+                        You haven't submitted any civic reports yet.
+                        Start by reporting an issue in your area.
+                    </p>
+
+                    <a href="/report" class="citizen-empty-button">
+                        Report an Issue
+                    </a>
+
+                </section>
+
+
+            <% } else { %>
+
+
+                <section class="citizen-reports-section">
+
+
+                    <!-- REPORT SECTION HEADER -->
+
+                    <div class="citizen-reports-heading">
+
+                        <div>
+
+                            <span class="citizen-dashboard-eyebrow">
+                                Your Activity
+                            </span>
+
+                            <h2>
+                                My Submitted Reports
+                            </h2>
+
+                            <p>
+                                View and track all the issues you have reported.
+                            </p>
+
+                        </div>
+
+                        <span class="citizen-report-count">
+                            <%= reports.length %>
+                            <%= reports.length === 1 ? "Report" : "Reports" %>
+                        </span>
+
+                    </div>
+
+
+                    <!-- ================= FILTERS ================= -->
+
+                    <div class="citizen-filter-card">
+
+                        <div class="citizen-filter-field citizen-search-field">
+
+                            <label for="citizenSearchInput">
+                                Search
+                            </label>
+
+                            <div class="citizen-search-box">
+
+                                <span>🔍</span>
+
+                                <input
+                                    type="text"
+                                    id="citizenSearchInput"
+                                    placeholder="Search your reports..."
+                                    onkeyup="filterCitizenReports()"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="citizen-filter-field">
+
+                            <label for="citizenStatusFilter">
+                                Status
+                            </label>
+
+                            <select
+                                id="citizenStatusFilter"
+                                onchange="filterCitizenReports()"
+                            >
+
+                                <option value="all">
+                                    All Statuses
+                                </option>
+
+                                <option value="Pending">
+                                    Pending
+                                </option>
+
+                                <option value="In Progress">
+                                    In Progress
+                                </option>
+
+                                <option value="Resolved">
+                                    Resolved
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="citizen-filter-field">
+
+                            <label for="citizenCategoryFilter">
+                                Category
+                            </label>
+
+                            <select
+                                id="citizenCategoryFilter"
+                                onchange="filterCitizenReports()"
+                            >
+
+                                <option value="all">
+                                    All Categories
+                                </option>
+
+                                <option value="Garbage">
+                                    Garbage
+                                </option>
+
+                                <option value="Pothole">
+                                    Pothole
+                                </option>
+
+                                <option value="Damaged Road">
+                                    Damaged Road
+                                </option>
+
+                                <option value="Streetlight">
+                                    Streetlight
+                                </option>
+
+                                <option value="Water Leakage">
+                                    Water Leakage
+                                </option>
+
+                                <option value="Drainage Problem">
+                                    Drainage Problem
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="citizen-reset-button"
+                            onclick="resetCitizenFilters()"
+                        >
+                            Reset
+                        </button>
+
+                    </div>
+
+
+                    <!-- ================= TABLE ================= -->
+
+                    <div class="citizen-table-card">
+
+                        <div class="citizen-table-scroll">
+
+                            <table id="citizenReportsTable">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>Report ID</th>
+
+                                        <th>Category</th>
+
+                                        <th>Location</th>
+
+                                        <th>Description</th>
+
+                                        <th>Submitted</th>
+
+                                        <th>Status</th>
+
+                                        <th>Action</th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody>
+
+                                    <% reports.forEach(report => { %>
+
+                                        <tr
+                                            class="citizen-report-row"
+                                            data-status="<%= report.status %>"
+                                            data-category="<%= report.category %>"
+                                        >
+
+                                            <td>
+
+                                                <span class="citizen-report-id">
+                                                    #<%= report.id %>
+                                                </span>
+
+                                            </td>
+
+
+                                            <td>
+
+                                                <span class="citizen-category-badge">
+                                                    <%= report.category %>
+                                                </span>
+
+                                            </td>
+
+
+                                            <td>
+
+                                                <span class="citizen-location">
+                                                    📍 <%= report.location %>
+                                                </span>
+
+                                            </td>
+
+
+                                            <td>
+
+                                                <div class="citizen-description">
+                                                    <%= report.description %>
+                                                </div>
+
+                                            </td>
+
+
+                                            <td>
+
+                                                <span class="citizen-date">
+                                                    <%= report.createdAt || "Not available" %>
+                                                </span>
+
+                                            </td>
+
+
+                                            <td>
+
+                                                <span class="citizen-status-badge
+                                                    <%= report.status === 'Pending'
+                                                        ? 'status-pending'
+                                                        : report.status === 'In Progress'
+                                                            ? 'status-progress'
+                                                            : 'status-resolved' %>"
+                                                >
+
+                                                    <%= report.status %>
+
+                                                </span>
+
+                                            </td>
+
+
+                                            <td>
+
+                                                <a
+                                                    href="/my-report/<%= report.id %>"
+                                                    class="citizen-view-button"
+                                                >
+                                                    View Details
+                                                </a>
+
+                                            </td>
+
+                                        </tr>
+
+                                    <% }) %>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            <% } %>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="citizen-dashboard-footer">
+
+        <p>
+            © <%= new Date().getFullYear() %> CleanCity Connect.
+            Building cleaner and smarter communities.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function filterCitizenReports() {
+
+            const searchText =
+                document
+                    .getElementById("citizenSearchInput")
+                    .value
+                    .toLowerCase();
+
+
+            const selectedStatus =
+                document
+                    .getElementById("citizenStatusFilter")
+                    .value;
+
+
+            const selectedCategory =
+                document
+                    .getElementById("citizenCategoryFilter")
+                    .value;
+
+
+            const rows =
+                document.querySelectorAll(".citizen-report-row");
+
+
+            rows.forEach(row => {
+
+                const rowText =
+                    row.textContent.toLowerCase();
+
+
+                const reportStatus =
+                    row.dataset.status;
+
+
+                const reportCategory =
+                    row.dataset.category;
+
+
+                const matchesSearch =
+                    rowText.includes(searchText);
+
+
+                const matchesStatus =
+                    selectedStatus === "all" ||
+                    reportStatus === selectedStatus;
+
+
+                const matchesCategory =
+                    selectedCategory === "all" ||
+                    reportCategory === selectedCategory;
+
+
+                if (
+                    matchesSearch &&
+                    matchesStatus &&
+                    matchesCategory
+                ) {
+
+                    row.style.display = "";
+
+                } else {
+
+                    row.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+
+        function resetCitizenFilters() {
+
+            document.getElementById("citizenSearchInput").value = "";
+
+            document.getElementById("citizenStatusFilter").value = "all";
+
+            document.getElementById("citizenCategoryFilter").value = "all";
+
+            filterCitizenReports();
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

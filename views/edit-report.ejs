@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Report | CleanCity Connect</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="edit-report-page">
+
+    <!-- Navigation -->
+    <nav class="edit-report-nav">
+
+        <a href="/" class="edit-report-brand">
+            <span>🌿</span>
+            <span>CleanCity Connect</span>
+        </a>
+
+        <div class="edit-report-nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout" class="edit-report-logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main -->
+    <main class="edit-report-main">
+
+        <div class="edit-report-wrapper">
+
+            <!-- Heading -->
+            <div class="edit-report-heading">
+
+                <div class="edit-report-heading-icon">
+                    ✏️
+                </div>
+
+                <div>
+                    <span>EDIT REPORT</span>
+
+                    <h1>Update Your Report</h1>
+
+                    <p>
+                        Make changes to the details of your pending report.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Form Card -->
+            <div class="edit-report-card">
+
+                <div class="edit-report-card-header">
+
+                    <div>
+                        <h2>Report Information</h2>
+
+                        <p>
+                            Report ID:
+                            <strong>#<%= report.id %></strong>
+                        </p>
+                    </div>
+
+                    <span class="edit-pending-badge">
+                        Pending
+                    </span>
+
+                </div>
+
+
+                <form
+                    action="/my-report/<%= report.id %>/edit"
+                    method="POST"
+                >
+
+                    <!-- Category -->
+                    <div class="edit-report-field">
+
+                        <label for="category">
+                            Issue Category
+                        </label>
+
+                        <div class="edit-report-input-box">
+
+                            <span>🗂️</span>
+
+                            <select
+                                id="category"
+                                name="category"
+                                required
+                            >
+
+                                <option value="">
+                                    Select an issue
+                                </option>
+
+                                <option
+                                    value="Garbage"
+                                    <%= report.category === "Garbage" ? "selected" : "" %>
+                                >
+                                    Garbage Accumulation
+                                </option>
+
+                                <option
+                                    value="Pothole"
+                                    <%= report.category === "Pothole" ? "selected" : "" %>
+                                >
+                                    Pothole
+                                </option>
+
+                                <option
+                                    value="Damaged Road"
+                                    <%= report.category === "Damaged Road" ? "selected" : "" %>
+                                >
+                                    Damaged Road
+                                </option>
+
+                                <option
+                                    value="Streetlight"
+                                    <%= report.category === "Streetlight" ? "selected" : "" %>
+                                >
+                                    Broken Streetlight
+                                </option>
+
+                                <option
+                                    value="Water Leakage"
+                                    <%= report.category === "Water Leakage" ? "selected" : "" %>
+                                >
+                                    Water Leakage
+                                </option>
+
+                                <option
+                                    value="Drainage Problem"
+                                    <%= report.category === "Drainage Problem" ? "selected" : "" %>
+                                >
+                                    Drainage Problem
+                                </option>
+
+                                <option
+                                    value="Other"
+                                    <%= report.category === "Other" ? "selected" : "" %>
+                                >
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Location -->
+                    <div class="edit-report-field">
+
+                        <label for="location">
+                            Issue Location
+                        </label>
+
+                        <div class="edit-report-input-box">
+
+                            <span>📍</span>
+
+                            <input
+                                type="text"
+                                id="location"
+                                name="location"
+                                value="<%= report.location %>"
+                                placeholder="Enter the issue location"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Description -->
+                    <div class="edit-report-field">
+
+                        <label for="description">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="6"
+                            minlength="10"
+                            placeholder="Describe the issue..."
+                            required
+                        ><%= report.description %></textarea>
+
+                        <small>
+                            Please provide at least 10 characters.
+                        </small>
+
+                    </div>
+
+
+                    <!-- Notice -->
+                    <div class="edit-report-notice">
+
+                        <span>💡</span>
+
+                        <p>
+                            You can edit this report while it is
+                            <strong>Pending</strong>. Once an administrator
+                            starts processing it, editing will no longer be available.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Buttons -->
+                    <div class="edit-report-actions">
+
+                        <a
+                            href="/my-report/<%= report.id %>"
+                            class="edit-report-cancel"
+                        >
+                            Cancel
+                        </a>
+
+                        <button
+                            type="submit"
+                            class="edit-report-save"
+                        >
+                            Save Changes →
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+<footer class="edit-report-footer">
+    <p>
+        © <%= new Date().getFullYear() %> CleanCity Connect
+    </p>
+    <p>
+        Building cleaner and smarter communities.
+    </p>
+</footer>
+
+</body>
+</html>

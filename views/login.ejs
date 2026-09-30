@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | CleanCity Connect</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="auth-page">
+
+    <!-- Navigation -->
+    <nav class="auth-nav">
+
+        <div class="auth-brand">
+            <div class="brand-logo">🌿</div>
+
+            <h2>
+                <span>CleanCity</span> Connect
+            </h2>
+        </div>
+
+        <div class="auth-nav-links">
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#features">Features</a>
+        </div>
+
+        <div class="auth-nav-actions">
+
+            <% if (currentUser) { %>
+
+                <% if (currentUser.role === "admin") { %>
+
+                    <a href="/admin">Admin Dashboard</a>
+
+                <% } else { %>
+
+                    <a href="/dashboard">Dashboard</a>
+                    <a href="/profile">Profile</a>
+                    <a href="/report">Report Issue</a>
+
+                <% } %>
+
+                <a href="/logout" class="nav-login-button">Logout</a>
+
+            <% } else { %>
+
+                <a href="/login" class="nav-login-button">Login</a>
+                <a href="/register" class="nav-register-button">Register</a>
+
+            <% } %>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Login Area -->
+    <main class="auth-main">
+
+        <section class="auth-card">
+
+            <!-- Brand inside card -->
+            <div class="auth-card-brand">
+
+                <div class="auth-card-logo">
+                    🌿🏙️
+                </div>
+
+                <h2>
+                    <span>CleanCity</span> Connect
+                </h2>
+
+                <p>
+                    Together for a cleaner, greener tomorrow
+                </p>
+
+            </div>
+
+
+            <h1>Login</h1>
+
+
+            <!-- Registration Success -->
+            <% if (typeof registered !== "undefined" && registered) { %>
+
+                <p class="success-message">
+                    Account created successfully. Please log in.
+                </p>
+
+            <% } %>
+
+
+            <!-- Login Error -->
+            <% if (typeof error !== "undefined" && error) { %>
+
+                <p class="error-message">
+                    <%= error %>
+                </p>
+
+            <% } %>
+
+
+            <!-- Login Form -->
+            <form action="/login" method="POST">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <div class="auth-input-box">
+
+                    <span class="input-icon">✉</span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="password-box auth-password-box">
+
+                    <span class="input-icon">🔒</span>
+
+                    <input
+                        type="password"
+                        name="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        onclick="togglePassword('loginPassword', this)"
+                    >
+                        Show
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-login-button"
+                >
+                    Login
+                </button>
+
+            </form>
+
+
+            <!-- Register -->
+            <div class="auth-register">
+
+                <span>Don't have an account?</span>
+
+                <a href="/register">
+                    Register here
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function togglePassword(inputId, button) {
+
+            const input = document.getElementById(inputId);
+
+            if (input.type === "password") {
+
+                input.type = "text";
+                button.textContent = "Hide";
+
+            } else {
+
+                input.type = "password";
+                button.textContent = "Show";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

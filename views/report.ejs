@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report an Issue | CleanCity Connect</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="report-page">
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav class="report-nav">
+
+        <a href="/" class="report-brand">
+            <span>🌿</span>
+            <span>CleanCity Connect</span>
+        </a>
+
+        <div class="report-nav-links">
+
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#features">Features</a>
+
+            <% if (currentUser) { %>
+
+                <% if (currentUser.role === "admin") { %>
+
+                    <a href="/admin">Admin Dashboard</a>
+
+                <% } else { %>
+
+                    <a href="/dashboard">Dashboard</a>
+                    <a href="/profile">Profile</a>
+
+                <% } %>
+
+            <% } %>
+
+        </div>
+
+        <div class="report-nav-actions">
+
+            <% if (currentUser) { %>
+
+                <a href="/logout" class="report-logout-button">
+                    Logout
+                </a>
+
+            <% } else { %>
+
+                <a href="/login" class="report-login-button">
+                    Login
+                </a>
+
+                <a href="/register" class="report-register-button">
+                    Register
+                </a>
+
+            <% } %>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= REPORT AREA ================= -->
+
+    <main class="report-modern-main">
+
+        <div class="report-modern-wrapper">
+
+            <!-- Heading -->
+
+            <div class="report-modern-heading">
+
+                <div class="report-heading-icon">
+                    📝
+                </div>
+
+                <div>
+                    <span>REPORT AN ISSUE</span>
+
+                    <h1>Report a City Problem</h1>
+
+                    <p>
+                        Help make your city cleaner, safer, and smarter.
+                        Provide the details below so the issue can be reviewed.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Form Card -->
+
+            <div class="report-modern-card">
+
+                <form
+                    action="/report"
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
+
+                    <!-- Name -->
+
+                    <div class="report-field">
+
+                        <label for="name">
+                            Your Name
+                        </label>
+
+                        <div class="report-input-box">
+
+                            <span>👤</span>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="report-field">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="report-input-box">
+
+                            <span>✉️</span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Category -->
+
+                    <div class="report-field">
+
+                        <label for="category">
+                            Issue Category
+                        </label>
+
+                        <div class="report-input-box">
+
+                            <span>🗂️</span>
+
+                            <select
+                                id="category"
+                                name="category"
+                                required
+                            >
+
+                                <option value="">
+                                    Select an issue
+                                </option>
+
+                                <option value="Garbage">
+                                    Garbage Accumulation
+                                </option>
+
+                                <option value="Pothole">
+                                    Pothole
+                                </option>
+
+                                <option value="Damaged Road">
+                                    Damaged Road
+                                </option>
+
+                                <option value="Streetlight">
+                                    Broken Streetlight
+                                </option>
+
+                                <option value="Water Leakage">
+                                    Water Leakage Problem
+                                </option>
+
+                                <option value="Drainage Problem">
+                                    Drainage Problem
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Location -->
+
+                    <div class="report-field">
+
+                        <label for="location">
+                            Issue Location
+                        </label>
+
+                        <div class="report-input-box">
+
+                            <span>📍</span>
+
+                            <input
+                                type="text"
+                                id="location"
+                                name="location"
+                                placeholder="Enter the location"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Description -->
+
+                    <div class="report-field">
+
+                        <label for="description">
+                            Describe the Problem
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="5"
+                            minlength="10"
+                            placeholder="Explain the problem in detail..."
+                            required
+                        ></textarea>
+
+                        <small>
+                            Please provide at least 10 characters.
+                        </small>
+
+                    </div>
+
+
+                    <!-- Image Upload -->
+
+                    <div class="report-field">
+
+                        <label for="reportImage">
+                            Upload an Image
+                        </label>
+
+                        <div class="report-upload-box">
+
+                            <div class="report-upload-icon">
+                                📷
+                            </div>
+
+                            <div class="report-upload-text">
+
+                                <strong>
+                                    Add a photo of the issue
+                                </strong>
+
+                                <span>
+                                    JPG, JPEG, PNG or WEBP · Maximum 5MB
+                                </span>
+
+                            </div>
+
+                            <input
+                                type="file"
+                                id="reportImage"
+                                name="reportImage"
+                                accept=".jpg,.jpeg,.png,.webp"
+                            >
+
+                        </div>
+
+
+                        <!-- Image Preview -->
+
+                        <img
+                            id="imagePreview"
+                            class="image-preview report-modern-preview"
+                            alt="Image Preview"
+                            style="display: none;"
+                        >
+
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="report-submit-button"
+                    >
+                        Submit Report →
+                    </button>
+
+                    <p class="report-security-note">
+                        🔒 Your report information is securely submitted for review.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+   <footer class="report-footer">
+    <p>
+        © <%= new Date().getFullYear() %> CleanCity Connect
+    </p>
+    <p>
+        Building cleaner and smarter communities.
+    </p>
+</footer>
+
+
+    <!-- ================= IMAGE PREVIEW ================= -->
+
+    <script>
+
+const reportImage = document.getElementById("reportImage");
+const imagePreview = document.getElementById("imagePreview");
+
+reportImage.addEventListener("change", function () {
+    const file = this.files[0];
+
+    if (!file) {
+        imagePreview.src = "";
+        imagePreview.style.display = "none";
+        return;
+    }
+
+    // Create preview of the newly selected image
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+        imagePreview.src = event.target.result;
+        imagePreview.style.display = "block";
+    };
+
+    reader.readAsDataURL(file);
+});
+
+    </script>
+
+</body>
+</html>

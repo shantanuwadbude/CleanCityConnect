@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | CleanCity Connect</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="admin-page">
+
+    <!-- =========================================
+         ADMIN NAVIGATION
+         ========================================= -->
+
+    <header class="admin-nav">
+
+        <a href="/" class="admin-brand">
+            <span class="admin-brand-icon">🌿</span>
+            <span>CleanCity Connect</span>
+        </a>
+
+        <div class="admin-nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/#about">About</a>
+
+            <a href="/#features">Features</a>
+
+            <a href="/admin" class="admin-nav-active">
+                Admin Dashboard
+            </a>
+
+            <a href="/logout" class="admin-nav-logout">
+                Logout
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         MAIN ADMIN DASHBOARD
+         ========================================= -->
+
+    <main class="admin-main">
+
+        <div class="admin-wrapper">
+
+
+            <!-- Dashboard Heading -->
+
+            <section class="admin-heading">
+
+                <div class="admin-heading-icon">
+                    🛡️
+                </div>
+
+                <div>
+
+                    <span class="admin-heading-label">
+                        ADMIN PANEL
+                    </span>
+
+                    <h1>Admin Dashboard</h1>
+
+                    <p>
+                        Manage, monitor and resolve citizen complaints efficiently.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Welcome Card -->
+
+            <section class="admin-welcome-card">
+
+                <div>
+
+                    <span class="admin-welcome-small">
+                        Welcome back
+                    </span>
+
+                    <h2>
+                        <%= user.name %>
+                    </h2>
+
+                    <p>
+                        Here's an overview of the current citizen reports.
+                    </p>
+
+                </div>
+
+                <div class="admin-welcome-icon">
+                    👋
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 STATISTICS
+                 ========================================= -->
+
+            <section class="admin-stats">
+
+                <div class="admin-stat-card total">
+
+                    <div class="admin-stat-icon">
+                        📊
+                    </div>
+
+                    <div>
+                        <span>Total Reports</span>
+                        <strong><%= totalReports %></strong>
+                    </div>
+
+                </div>
+
+
+                <div class="admin-stat-card pending">
+
+                    <div class="admin-stat-icon">
+                        ⏳
+                    </div>
+
+                    <div>
+                        <span>Pending</span>
+                        <strong><%= pendingReports %></strong>
+                    </div>
+
+                </div>
+
+
+                <div class="admin-stat-card progress">
+
+                    <div class="admin-stat-icon">
+                        🔄
+                    </div>
+
+                    <div>
+                        <span>In Progress</span>
+                        <strong><%= inProgressReports %></strong>
+                    </div>
+
+                </div>
+
+
+                <div class="admin-stat-card resolved">
+
+                    <div class="admin-stat-icon">
+                        ✅
+                    </div>
+
+                    <div>
+                        <span>Resolved</span>
+                        <strong><%= resolvedReports %></strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 STATUS OVERVIEW
+                 ========================================= -->
+
+            <section class="admin-panel">
+
+                <div class="admin-panel-heading">
+
+                    <div>
+
+                        <span>REPORT ANALYTICS</span>
+
+                        <h2>
+                            Report Status Overview
+                        </h2>
+
+                    </div>
+
+                    <div class="admin-panel-icon">
+                        📈
+                    </div>
+
+                </div>
+
+
+                <div class="admin-status-list">
+
+
+                    <!-- Pending -->
+
+                    <div class="admin-status-item">
+
+                        <div class="admin-status-top">
+
+                            <div class="admin-status-name">
+
+                                <span class="admin-status-dot pending-dot"></span>
+
+                                <span>Pending</span>
+
+                            </div>
+
+                            <strong>
+                                <%= pendingCount %>
+                            </strong>
+
+                        </div>
+
+
+                        <div class="admin-status-bar">
+
+                            <div
+                                class="admin-status-fill pending-fill"
+                                data-count="<%= pendingCount %>"
+                                data-total="<%= totalReports %>">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- In Progress -->
+
+                    <div class="admin-status-item">
+
+                        <div class="admin-status-top">
+
+                            <div class="admin-status-name">
+
+                                <span class="admin-status-dot progress-dot"></span>
+
+                                <span>In Progress</span>
+
+                            </div>
+
+                            <strong>
+                                <%= inProgressCount %>
+                            </strong>
+
+                        </div>
+
+
+                        <div class="admin-status-bar">
+
+                            <div
+                                class="admin-status-fill progress-fill"
+                                data-count="<%= inProgressCount %>"
+                                data-total="<%= totalReports %>">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Resolved -->
+
+                    <div class="admin-status-item">
+
+                        <div class="admin-status-top">
+
+                            <div class="admin-status-name">
+
+                                <span class="admin-status-dot resolved-dot"></span>
+
+                                <span>Resolved</span>
+
+                            </div>
+
+                            <strong>
+                                <%= resolvedCount %>
+                            </strong>
+
+                        </div>
+
+
+                        <div class="admin-status-bar">
+
+                            <div
+                                class="admin-status-fill resolved-fill"
+                                data-count="<%= resolvedCount %>"
+                                data-total="<%= totalReports %>">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 CATEGORY SUMMARY
+                 ========================================= -->
+
+            <section class="admin-panel">
+
+                <div class="admin-panel-heading">
+
+                    <div>
+
+                        <span>REPORT CATEGORIES</span>
+
+                        <h2>
+                            Category-wise Reports
+                        </h2>
+
+                    </div>
+
+                    <div class="admin-panel-icon">
+                        🗂️
+                    </div>
+
+                </div>
+
+
+                <div class="admin-category-grid">
+
+
+                    <div class="admin-category-card">
+                        <span>🗑️</span>
+
+                        <div>
+                            <p>Garbage</p>
+                            <strong>
+                                <%= categoryCounts["Garbage"] || 0 %>
+                            </strong>
+                        </div>
+                    </div>
+
+
+                    <div class="admin-category-card">
+                        <span>🕳️</span>
+
+                        <div>
+                            <p>Pothole</p>
+                            <strong>
+                                <%= categoryCounts["Pothole"] || 0 %>
+                            </strong>
+                        </div>
+                    </div>
+
+
+                    <div class="admin-category-card">
+                        <span>🛣️</span>
+
+                        <div>
+                            <p>Damaged Road</p>
+                            <strong>
+                                <%= categoryCounts["Damaged Road"] || 0 %>
+                            </strong>
+                        </div>
+                    </div>
+
+
+                    <div class="admin-category-card">
+                        <span>💡</span>
+
+                        <div>
+                            <p>Streetlight</p>
+                            <strong>
+                                <%= categoryCounts["Streetlight"] || 0 %>
+                            </strong>
+                        </div>
+                    </div>
+
+
+                    <div class="admin-category-card">
+                        <span>💧</span>
+
+                        <div>
+                            <p>Water Leakage</p>
+                            <strong>
+                                <%= categoryCounts["Water Leakage"] || 0 %>
+                            </strong>
+                        </div>
+                    </div>
+
+
+                    <div class="admin-category-card">
+                        <span>🚰</span>
+
+                        <div>
+                            <p>Drainage Problem</p>
+                            <strong>
+                                <%= categoryCounts["Drainage Problem"] || 0 %>
+                            </strong>
+                        </div>
+                    </div>
+
+
+                    <div class="admin-category-card">
+                        <span>📌</span>
+
+                        <div>
+                            <p>Other</p>
+                            <strong>
+                                <%= categoryCounts["Other"] || 0 %>
+                            </strong>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                REPORT MANAGEMENT
+                ========================================= -->
+
+            <section class="admin-reports-section">
+
+
+                <div class="admin-reports-heading">
+
+                    <div>
+
+                        <span>REPORT MANAGEMENT</span>
+
+                        <h2>
+                            Citizen Reports
+                        </h2>
+
+                        <p>
+                            Search, filter and manage submitted reports.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Filters -->
+
+                <div class="admin-filter-card">
+
+                    <div class="admin-filter-field search-field">
+
+                        <label for="searchInput">
+                            Search
+                        </label>
+
+                        <div class="admin-filter-input">
+
+                            <span>🔍</span>
+
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search reports..."
+                                onkeyup="filterReports()"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="admin-filter-field">
+
+                        <label for="statusFilter">
+                            Status
+                        </label>
+
+                        <select
+                            id="statusFilter"
+                            onchange="filterReports()"
+                        >
+
+                            <option value="all">
+                                All Statuses
+                            </option>
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="In Progress">
+                                In Progress
+                            </option>
+
+                            <option value="Resolved">
+                                Resolved
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="admin-filter-field">
+
+                        <label for="categoryFilter">
+                            Category
+                        </label>
+
+                        <select
+                            id="categoryFilter"
+                            onchange="filterReports()"
+                        >
+
+                            <option value="all">
+                                All Categories
+                            </option>
+
+                            <option value="Garbage">
+                                Garbage
+                            </option>
+
+                            <option value="Pothole">
+                                Pothole
+                            </option>
+
+                            <option value="Damaged Road">
+                                Damaged Road
+                            </option>
+
+                            <option value="Streetlight">
+                                Streetlight
+                            </option>
+
+                            <option value="Water Leakage">
+                                Water Leakage
+                            </option>
+
+                            <option value="Drainage Problem">
+                                Drainage Problem
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="admin-filter-field">
+
+                        <label for="sortFilter">
+                            Sort By
+                        </label>
+
+                        <select
+                            id="sortFilter"
+                            onchange="sortReports()"
+                        >
+
+                            <option value="newest">
+                                Newest First
+                            </option>
+
+                            <option value="oldest">
+                                Oldest First
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="admin-reset-button"
+                        onclick="resetFilters()"
+                    >
+                        ↻ Reset
+                    </button>
+
+                </div>
+
+
+                <!-- Reports Table -->
+
+                <div class="admin-table-card">
+
+                    <div class="admin-table-header">
+
+                        <div>
+
+                            <h3>
+                                All Reports
+                            </h3>
+
+                            <p>
+                                Review and manage citizen complaints.
+                            </p>
+
+                        </div>
+
+                        <span class="admin-report-count">
+                            <%= totalReports %> Reports
+                        </span>
+
+                    </div>
+
+
+                    <div class="admin-table-scroll">
+
+                        <table id="reportsTable">
+
+                            <thead>
+
+                                <tr>
+
+<th>Report ID</th>
+<th>Citizen</th>
+<th>Category</th>
+<th>Location</th>
+<th>Description</th>
+<th>Submitted</th>
+<th>Status</th>
+<th>Admin Remark</th>
+<th>Update Status</th>
+<th>Actions</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                        <tbody>
+
+    <% if (reports.length === 0) { %>
+
+        <tr>
+            <td colspan="10" class="no-reports">
+                No complaints available.
+            </td>
+        </tr>
+
+    <% } %>
+
+
+    <% reports.forEach(report => { %>
+
+        <tr
+            class="report-row"
+            data-status="<%= report.status %>"
+            data-category="<%= report.category %>"
+            data-id="<%= report.id %>"
+        >
+
+            <!-- REPORT ID -->
+            <td>
+                <span class="admin-report-id">
+                    #<%= report.id %>
+                </span>
+            </td>
+
+
+            <!-- CITIZEN -->
+            <td>
+                <div class="professional-citizen">
+
+                    <strong>
+                        <%= report.name %>
+                    </strong>
+
+                    <span>
+                        <%= report.email %>
+                    </span>
+
+                    <small>
+                        Reports: <%= reportCounts[report.userId] || 0 %>
+                    </small>
+
+                </div>
+            </td>
+
+
+            <!-- CATEGORY -->
+            <td>
+                <span class="admin-category-badge">
+                    <%= report.category %>
+                </span>
+            </td>
+
+
+            <!-- LOCATION -->
+            <td>
+                <span class="admin-location">
+                    📍 <%= report.location %>
+                </span>
+            </td>
+
+
+            <!-- DESCRIPTION -->
+            <td>
+                <div class="admin-description">
+                    <%= report.description %>
+                </div>
+            </td>
+
+
+            <!-- SUBMITTED -->
+            <td>
+                <span class="admin-date">
+                    <%= report.createdAt || "Not available" %>
+                </span>
+            </td>
+
+
+            <!-- STATUS -->
+            <td>
+                <span class="admin-status-badge
+                    <%= report.status === 'Pending'
+                        ? 'status-pending'
+                        : report.status === 'In Progress'
+                            ? 'status-progress'
+                            : 'status-resolved' %>">
+
+                    <%= report.status %>
+
+                </span>
+            </td>
+
+
+            <!-- ADMIN REMARK -->
+            <td>
+
+                <form
+                    action="/admin/remark/<%= report.id %>"
+                    method="POST"
+                    class="admin-remark-form"
+                >
+
+                    <textarea
+                        name="remark"
+                        rows="2"
+                        placeholder="Write a remark..."
+                    ><%= report.adminRemark || "" %></textarea>
+
+                    <button
+                        type="submit"
+                        class="admin-save-button"
+                    >
+                        Save Remark
+                    </button>
+
+                </form>
+
+            </td>
+
+
+            <!-- UPDATE STATUS -->
+            <td>
+
+                <form
+                    action="/admin/update/<%= report.id %>"
+                    method="POST"
+                    class="admin-update-form"
+                >
+
+                    <select name="status">
+
+                        <option
+                            value="Pending"
+                            <%= report.status === "Pending"
+                                ? "selected"
+                                : "" %>
+                        >
+                            Pending
+                        </option>
+
+                        <option
+                            value="In Progress"
+                            <%= report.status === "In Progress"
+                                ? "selected"
+                                : "" %>
+                        >
+                            In Progress
+                        </option>
+
+                        <option
+                            value="Resolved"
+                            <%= report.status === "Resolved"
+                                ? "selected"
+                                : "" %>
+                        >
+                            Resolved
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        type="submit"
+                        class="admin-update-button"
+                    >
+                        Update
+                    </button>
+
+                </form>
+
+            </td>
+
+
+            <!-- ACTIONS -->
+            <td>
+
+                <div class="admin-action-buttons">
+
+                    <a
+                        href="/admin/report/<%= report.id %>"
+                        class="admin-view-button"
+                    >
+                        View Details
+                    </a>
+
+
+                    <form
+                        action="/admin/delete/<%= report.id %>"
+                        method="POST"
+                        onsubmit="return confirm('Are you sure you want to delete this report?');"
+                    >
+
+                        <button
+                            type="submit"
+                            class="admin-delete-button"
+                        >
+                            Delete
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+    <% }); %>
+
+</tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+
+    <footer class="admin-footer">
+
+       <p>
+    © <%= new Date().getFullYear() %> CleanCity Connect
+</p>
+
+<p>
+    Building cleaner and smarter communities.
+</p>
+
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
+    <script>
+
+        /* =========================================
+           FILTER REPORTS
+           ========================================= */
+
+        function filterReports() {
+
+            const searchText =
+                document
+                    .getElementById("searchInput")
+                    .value
+                    .toLowerCase();
+
+
+            const selectedStatus =
+                document.getElementById("statusFilter").value;
+
+
+            const selectedCategory =
+                document.getElementById("categoryFilter").value;
+
+
+            const rows =
+                document.querySelectorAll(".report-row");
+
+
+            rows.forEach(row => {
+
+                const rowText =
+                    row.textContent.toLowerCase();
+
+
+                const reportStatus =
+                    row.dataset.status;
+
+
+                const reportCategory =
+                    row.dataset.category;
+
+
+                const matchesSearch =
+                    rowText.includes(searchText);
+
+
+                const matchesStatus =
+                    selectedStatus === "all" ||
+                    reportStatus === selectedStatus;
+
+
+                const matchesCategory =
+                    selectedCategory === "all" ||
+                    reportCategory === selectedCategory;
+
+
+                if (
+                    matchesSearch &&
+                    matchesStatus &&
+                    matchesCategory
+                ) {
+
+                    row.style.display = "";
+
+                } else {
+
+                    row.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+
+        /* =========================================
+           RESET FILTERS
+           ========================================= */
+
+        function resetFilters() {
+
+            document.getElementById("searchInput").value = "";
+
+            document.getElementById("statusFilter").value = "all";
+
+            document.getElementById("categoryFilter").value = "all";
+
+            document.getElementById("sortFilter").value = "newest";
+
+
+            filterReports();
+
+            sortReports();
+
+        }
+
+
+        /* =========================================
+           SORT REPORTS
+           ========================================= */
+
+        function sortReports() {
+
+            const tableBody =
+                document.querySelector("#reportsTable tbody");
+
+
+            const rows =
+                Array.from(
+                    tableBody.querySelectorAll(".report-row")
+                );
+
+
+            const sortValue =
+                document.getElementById("sortFilter").value;
+
+
+            rows.sort((a, b) => {
+
+                const idA =
+                    parseInt(a.dataset.id, 10);
+
+
+                const idB =
+                    parseInt(b.dataset.id, 10);
+
+
+                if (sortValue === "oldest") {
+
+                    return idA - idB;
+
+                }
+
+
+                return idB - idA;
+
+            });
+
+
+            rows.forEach(row => {
+
+                tableBody.appendChild(row);
+
+            });
+
+        }
+
+
+        /* =========================================
+           STATUS BAR CALCULATIONS
+           ========================================= */
+
+        const statusBars =
+            document.querySelectorAll(".admin-status-fill");
+
+
+        statusBars.forEach(bar => {
+
+            const count =
+                Number(bar.dataset.count);
+
+
+            const total =
+                Number(bar.dataset.total);
+
+
+            let percentage = 0;
+
+
+            if (total > 0) {
+
+                percentage =
+                    (count / total) * 100;
+
+            }
+
+
+            bar.style.width =
+                percentage + "%";
+
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>

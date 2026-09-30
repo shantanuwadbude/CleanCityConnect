@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CleanCity Connect</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="home-page">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="home-nav">
+
+        <a href="/" class="home-brand">
+            <span class="home-brand-icon">🌿</span>
+            <span>CleanCity Connect</span>
+        </a>
+
+        <div class="home-nav-links">
+
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#features">Features</a>
+
+            <% if (currentUser) { %>
+
+                <% if (currentUser.role === "admin") { %>
+
+                    <a href="/admin">Admin Dashboard</a>
+
+                <% } else { %>
+
+                    <a href="/dashboard">Dashboard</a>
+                    <a href="/profile">Profile</a>
+                    <a href="/report">Report Issue</a>
+
+                <% } %>
+
+            <% } %>
+
+        </div>
+
+        <div class="home-nav-actions">
+
+            <% if (currentUser) { %>
+
+                <a href="/logout" class="home-login-button">
+                    Logout
+                </a>
+
+            <% } else { %>
+
+                <a href="/login" class="home-login-button">
+                    Login
+                </a>
+
+                <a href="/register" class="home-register-button">
+                    Register
+                </a>
+
+            <% } %>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="home-hero">
+
+        <div class="home-hero-content">
+
+            <div class="hero-badge">
+                🌱 Smart Citizen Platform
+            </div>
+
+            <h1>
+                Build a Cleaner<br>
+                <span>and Smarter City</span>
+            </h1>
+
+            <p>
+                Report city problems, track complaints,
+                and work together to make our communities
+                cleaner, safer, and better.
+            </p>
+
+            <div class="hero-buttons">
+
+                <% if (currentUser && currentUser.role !== "admin") { %>
+
+                    <a href="/report" class="hero-primary-button">
+                        Report an Issue →
+                    </a>
+
+                    <a href="/dashboard" class="hero-secondary-button">
+                        View Dashboard
+                    </a>
+
+                <% } else if (!currentUser) { %>
+
+                    <a href="/login" class="hero-primary-button">
+                        Report an Issue →
+                    </a>
+
+                    <a href="/#features" class="hero-secondary-button">
+                        Explore Features
+                    </a>
+
+                <% } else { %>
+
+                    <a href="/admin" class="hero-primary-button">
+                        Open Admin Dashboard →
+                    </a>
+
+                <% } %>
+
+            </div>
+
+        </div>
+
+        <div class="home-hero-visual">
+
+            <div class="hero-city-card">
+
+                <div class="hero-city-icon">
+                    🏙️
+                </div>
+
+                <h3>
+                    Together for a<br>
+                    Better City
+                </h3>
+
+                <p>
+                    Every report can make a difference.
+                </p>
+
+                <div class="hero-mini-stats">
+                    <div>
+                        <strong>24/7</strong>
+                        <small>Reporting</small>
+                    </div>
+
+                    <div>
+                        <strong>✓</strong>
+                        <small>Track Issues</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATISTICS ================= -->
+
+    <section class="home-statistics">
+
+        <div class="home-stat-card">
+            <div class="home-stat-icon">📋</div>
+
+            <div>
+                <h2>120+</h2>
+                <p>Total Reports</p>
+            </div>
+        </div>
+
+
+        <div class="home-stat-card">
+            <div class="home-stat-icon">✅</div>
+
+            <div>
+                <h2>85+</h2>
+                <p>Issues Resolved</p>
+            </div>
+        </div>
+
+
+        <div class="home-stat-card">
+            <div class="home-stat-icon">🔧</div>
+
+            <div>
+                <h2>35+</h2>
+                <p>Active Issues</p>
+            </div>
+        </div>
+
+
+        <div class="home-stat-card">
+            <div class="home-stat-icon">🏙️</div>
+
+            <div>
+                <h2>1</h2>
+                <p>Connected Community</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about" class="home-about">
+
+        <div class="home-section-heading">
+
+            <span>ABOUT US</span>
+
+            <h2>
+                Making it easier to<br>
+                improve our city
+            </h2>
+
+        </div>
+
+        <div class="home-about-content">
+
+            <p>
+                CleanCity Connect is a citizen-focused platform
+                designed to make reporting city problems simple
+                and transparent.
+            </p>
+
+            <p>
+                Citizens can report issues such as garbage,
+                damaged roads, streetlight problems and water
+                leakage, then track the progress of their reports.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section id="features" class="home-features">
+
+        <div class="home-section-heading centered">
+
+            <span>FEATURES</span>
+
+            <h2>
+                Everything you need<br>
+                to make a difference
+            </h2>
+
+            <p>
+                A simple platform connecting citizens and
+                city authorities.
+            </p>
+
+        </div>
+
+
+        <div class="home-feature-grid">
+
+            <div class="home-feature-card">
+
+                <div class="home-feature-icon">
+                    🗑️
+                </div>
+
+                <h3>Report Garbage</h3>
+
+                <p>
+                    Report garbage accumulation in public
+                    places and help keep your surroundings clean.
+                </p>
+
+            </div>
+
+
+            <div class="home-feature-card">
+
+                <div class="home-feature-icon">
+                    🚧
+                </div>
+
+                <h3>Report Road Damage</h3>
+
+                <p>
+                    Notify authorities about potholes and
+                    damaged roads in your area.
+                </p>
+
+            </div>
+
+
+            <div class="home-feature-card">
+
+                <div class="home-feature-icon">
+                    💡
+                </div>
+
+                <h3>Streetlight Issues</h3>
+
+                <p>
+                    Report broken or damaged streetlights
+                    to improve safety in your community.
+                </p>
+
+            </div>
+
+
+            <div class="home-feature-card">
+
+                <div class="home-feature-icon">
+                    📊
+                </div>
+
+                <h3>Track Complaints</h3>
+
+                <p>
+                    Monitor the status and progress of
+                    your submitted reports.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="home-cta">
+
+        <div>
+
+            <span>MAKE A DIFFERENCE</span>
+
+            <h2>
+                See a problem?<br>
+                Report it.
+            </h2>
+
+            <p>
+                Your report can help make your neighborhood
+                cleaner, safer and better.
+            </p>
+
+        </div>
+
+        <div>
+
+            <% if (currentUser && currentUser.role !== "admin") { %>
+
+                <a href="/report" class="home-cta-button">
+                    Start Reporting →
+                </a>
+
+            <% } else if (!currentUser) { %>
+
+                <a href="/login" class="home-cta-button">
+                    Login to Report →
+                </a>
+
+            <% } else { %>
+
+                <a href="/admin" class="home-cta-button">
+                    Admin Dashboard →
+                </a>
+
+            <% } %>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="home-footer">
+
+        <div class="home-footer-brand">
+
+            <span>🌿</span>
+
+            <strong>
+                CleanCity Connect
+            </strong>
+
+        </div>
+
+    <p>
+    © <%= new Date().getFullYear() %> CleanCity Connect
+</p>
+
+<p>
+    Building cleaner and smarter communities.
+</p>
+
+    </footer>
+
+</body>
+</html>

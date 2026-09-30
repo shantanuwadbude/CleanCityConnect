@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Shantanu Wadbude",
+    "email": "shantanuwadbude@gmail.com",
+    "password": "$2b$10$CIyFaj1PXzoXbXZjvDXndeT0ufkLJqoXDthsl2s6lGGyjysxpCDtG",
+    "role": "citizen"
+  },
+  {
+    "id": 2,
+    "name": "CleanCity Admin",
+    "email": "admin@cleancity.com",
+    "password": "$2b$10$eMr5iJPPrjlnjMdAr9SQe./5Zlr6c6HXLkrIowUoehxpRxKuekP7W",
+    "role": "admin"
+  }
+]

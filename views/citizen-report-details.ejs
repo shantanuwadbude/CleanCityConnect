@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report Details | CleanCity Connect</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="citizen-details-page">
+
+    <!-- Navigation -->
+    <nav class="details-nav">
+
+        <a href="/" class="details-brand">
+            <span>🌿</span>
+            <span>CleanCity Connect</span>
+        </a>
+
+        <div class="details-nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout" class="details-logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main -->
+    <main class="citizen-details-main">
+
+        <div class="citizen-details-wrapper">
+
+            <!-- Heading -->
+            <div class="citizen-details-heading">
+
+                <div class="details-heading-icon">
+                    📋
+                </div>
+
+                <div>
+                    <span>MY REPORT</span>
+
+                    <h1>Report Details</h1>
+
+                    <p>
+                        View the information and current progress of your submitted report.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Report Information Card -->
+            <div class="details-card">
+
+                <div class="details-card-header">
+                    <h2>Report Information</h2>
+
+                    <span class="details-status-badge">
+                        <%= report.status %>
+                    </span>
+                </div>
+
+
+                <div class="details-info-grid">
+
+                    <div class="details-info-item">
+                        <span class="details-info-icon">🆔</span>
+
+                        <div>
+                            <small>Report ID</small>
+                            <strong>#<%= report.id %></strong>
+                        </div>
+                    </div>
+
+
+                    <div class="details-info-item">
+                        <span class="details-info-icon">🗂️</span>
+
+                        <div>
+                            <small>Category</small>
+                            <strong><%= report.category %></strong>
+                        </div>
+                    </div>
+
+
+                    <div class="details-info-item">
+                        <span class="details-info-icon">📍</span>
+
+                        <div>
+                            <small>Location</small>
+                            <strong><%= report.location %></strong>
+                        </div>
+                    </div>
+
+
+                    <div class="details-info-item">
+                        <span class="details-info-icon">📅</span>
+
+                        <div>
+                            <small>Submitted On</small>
+                            <strong>
+                                <%= report.createdAt || "Not available" %>
+                            </strong>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Description -->
+                <div class="details-description">
+
+                    <h3>📝 Description</h3>
+
+                    <p>
+                        <%= report.description %>
+                    </p>
+
+                </div>
+
+
+                <!-- Image -->
+                <% if (report.image) { %>
+
+                    <div class="details-image-section">
+
+                        <h3>📷 Uploaded Image</h3>
+
+                        <img
+                            src="<%= report.image %>"
+                            alt="Reported issue"
+                            class="citizen-report-image"
+                        >
+
+                    </div>
+
+                <% } %>
+
+
+                <!-- Admin Remark -->
+                <% if (report.adminRemark) { %>
+
+                    <div class="details-remark">
+
+                        <div class="remark-icon">
+                            💬
+                        </div>
+
+                        <div>
+                            <h3>Admin Remark</h3>
+
+                            <p>
+                                <%= report.adminRemark %>
+                            </p>
+                        </div>
+
+                    </div>
+
+                <% } %>
+
+            </div>
+
+
+            <!-- Status Timeline -->
+            <div class="details-card timeline-card">
+
+                <div class="details-card-header">
+                    <div>
+                        <h2>Report Progress</h2>
+
+                        <p class="timeline-subtitle">
+                            Track the progress of your complaint.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="modern-status-timeline">
+
+                    <!-- Submitted -->
+                    <div class="modern-timeline-step active">
+
+                        <div class="modern-timeline-dot">
+                            ✓
+                        </div>
+
+                        <div class="modern-timeline-content">
+
+                            <strong>Report Submitted</strong>
+
+                            <span>
+                                Your complaint has been submitted successfully.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Pending -->
+                    <div class="modern-timeline-step
+                        <%= ['Pending', 'In Progress', 'Resolved'].includes(report.status) ? 'active' : '' %>">
+
+                        <div class="modern-timeline-dot">
+                            2
+                        </div>
+
+                        <div class="modern-timeline-content">
+
+                            <strong>Pending</strong>
+
+                            <span>
+                                Your complaint is waiting for action.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- In Progress -->
+                    <div class="modern-timeline-step
+                        <%= ['In Progress', 'Resolved'].includes(report.status) ? 'active' : '' %>">
+
+                        <div class="modern-timeline-dot">
+                            3
+                        </div>
+
+                        <div class="modern-timeline-content">
+
+                            <strong>In Progress</strong>
+
+                            <span>
+                                The issue is currently being worked on.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Resolved -->
+                    <div class="modern-timeline-step
+                        <%= report.status === 'Resolved' ? 'active' : '' %>">
+
+                        <div class="modern-timeline-dot">
+                            4
+                        </div>
+
+                        <div class="modern-timeline-content">
+
+                            <strong>Resolved</strong>
+
+                            <span>
+                                The reported issue has been resolved.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+         <div class="details-action-buttons">
+
+    <% if (report.status === "Pending") { %>
+        <a href="/my-report/<%= report.id %>/edit" class="details-edit-button">
+            ✏️ Edit Report
+        </a>
+    <% } %>
+
+    <a href="/dashboard" class="details-back-button">
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="details-footer">
+
+        <p>© 2026 CleanCity Connect</p>
+
+        <p>Smart Citizen Platform</p>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | CleanCity Connect</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="auth-page">
+
+    <!-- Navigation -->
+    <nav class="auth-nav">
+
+        <div class="auth-brand">
+
+            <div class="brand-logo">
+                🌿
+            </div>
+
+            <h2>
+                <span>CleanCity</span> Connect
+            </h2>
+
+        </div>
+
+
+        <div class="auth-nav-links">
+
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#features">Features</a>
+
+        </div>
+
+
+        <div class="auth-nav-actions">
+
+            <% if (currentUser) { %>
+
+                <% if (currentUser.role === "admin") { %>
+
+                    <a href="/admin">
+                        Admin Dashboard
+                    </a>
+
+                <% } else { %>
+
+                    <a href="/dashboard">
+                        Dashboard
+                    </a>
+
+                    <a href="/profile">
+                        Profile
+                    </a>
+
+                    <a href="/report">
+                        Report Issue
+                    </a>
+
+                <% } %>
+
+                <a href="/logout" class="nav-login-button">
+                    Logout
+                </a>
+
+            <% } else { %>
+
+                <a href="/login" class="nav-login-button">
+                    Login
+                </a>
+
+                <a href="/register" class="nav-register-button">
+                    Register
+                </a>
+
+            <% } %>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Registration Area -->
+    <main class="auth-main">
+
+        <section class="auth-card">
+
+            <!-- Brand -->
+            <div class="auth-card-brand">
+
+                <div class="auth-card-logo">
+                    🌿🏙️
+                </div>
+
+                <h2>
+                    <span>CleanCity</span> Connect
+                </h2>
+
+                <p>
+                    Together for a cleaner, greener tomorrow
+                </p>
+
+            </div>
+
+
+            <h1>Create Account</h1>
+
+
+            <!-- Registration Form -->
+            <form action="/register" method="POST">
+
+                <!-- Full Name -->
+                <label for="name">
+                    Full Name
+                </label>
+
+                <div class="auth-input-box">
+
+                    <span class="input-icon">
+                        👤
+                    </span>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Email -->
+                <label for="email">
+                    Email
+                </label>
+
+                <div class="auth-input-box">
+
+                    <span class="input-icon">
+                        ✉
+                    </span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Password -->
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="password-box auth-password-box">
+
+                    <span class="input-icon">
+                        🔒
+                    </span>
+
+                    <input
+                        type="password"
+                        name="password"
+                        id="registerPassword"
+                        minlength="6"
+                        placeholder="Create a password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        onclick="togglePassword('registerPassword', this)"
+                    >
+                        Show
+                    </button>
+
+                </div>
+
+
+                <!-- Confirm Password -->
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <div class="password-box auth-password-box">
+
+                    <span class="input-icon">
+                        🔒
+                    </span>
+
+                    <input
+                        type="password"
+                        name="confirmPassword"
+                        id="confirmPassword"
+                        minlength="6"
+                        placeholder="Confirm your password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        onclick="togglePassword('confirmPassword', this)"
+                    >
+                        Show
+                    </button>
+
+                </div>
+
+
+                <!-- Register Button -->
+                <button
+                    type="submit"
+                    class="auth-login-button"
+                >
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <!-- Login Link -->
+            <div class="auth-register">
+
+                <span>
+                    Already have an account?
+                </span>
+
+                <a href="/login">
+                    Login here
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function togglePassword(inputId, button) {
+
+            const input = document.getElementById(inputId);
+
+            if (input.type === "password") {
+
+                input.type = "text";
+                button.textContent = "Hide";
+
+            } else {
+
+                input.type = "password";
+                button.textContent = "Show";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

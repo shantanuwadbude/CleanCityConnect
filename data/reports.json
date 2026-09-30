@@ -1,0 +1,108 @@
+[
+  {
+    "id": 1,
+    "name": "SHANTANU WADBUDE",
+    "email": "shantanuwadbude@gmail.com",
+    "category": "Pothole",
+    "location": "near main road",
+    "description": "xyz......",
+    "status": "Resolved",
+    "adminRemark": "Work will be done soon"
+  },
+  {
+    "id": 2,
+    "userId": 1,
+    "name": "Shantanu Wadbude",
+    "email": "shantanuwadbude@gmail.com",
+    "category": "Pothole",
+    "location": "Manewada",
+    "description": "......",
+    "status": "In Progress",
+    "adminRemark": "Work Completed"
+  },
+  {
+    "id": 4,
+    "userId": 1,
+    "name": "Shantanu Wadbude",
+    "email": "shantanuwadbude@gmail.com",
+    "category": "Streetlight",
+    "location": "Besa",
+    "description": "..............",
+    "image": null,
+    "createdAt": "19/9/2026, 10:55:55 pm",
+    "status": "Pending",
+    "adminRemark": "abc"
+  },
+  {
+    "id": 6,
+    "userId": 1,
+    "name": "Shantanu Wadbude",
+    "email": "shantanuwadbude@gmail.com",
+    "category": "Other",
+    "location": "abc",
+    "description": "....................",
+    "image": "/uploads/1789839186000-141844518.png",
+    "createdAt": "19/9/2026, 11:03:06 pm",
+    "status": "Resolved"
+  },
+  {
+    "id": 5,
+    "userId": 1,
+    "name": "Shantanu Wadbude",
+    "email": "shantanuwadbude@gmail.com",
+    "category": "Pothole",
+    "location": "x",
+    "description": "...................",
+    "image": "/uploads/1790694050927-933836541.png",
+    "createdAt": "29/9/2026, 8:30:50 pm",
+    "status": "Pending"
+  },
+  {
+    "id": 6,
+    "userId": 1,
+    "name": "Shantanu Wadbude",
+    "email": "shantanuwadbude@gmail.com",
+    "category": "Streetlight",
+    "location": "fgh",
+    "description": ".............",
+    "image": "/uploads/1790697729701-1123553.png",
+    "createdAt": "29/9/2026, 9:32:09 pm",
+    "status": "Pending"
+  },
+  {
+    "id": 7,
+    "userId": 1,
+    "name": "Shantanu Wadbude",
+    "email": "shantanuwadbude@gmail.com",
+    "category": "Drainage Problem",
+    "location": "Manewada",
+    "description": "...........",
+    "image": null,
+    "createdAt": "29/9/2026, 9:37:05 pm",
+    "status": "Pending"
+  },
+  {
+    "id": 8,
+    "userId": 1,
+    "name": "Shantanu Wadbude",
+    "email": "shantanuwadbude@gmail.com",
+    "category": "Damaged Road",
+    "location": "s",
+    "description": "...............",
+    "image": null,
+    "createdAt": "29/9/2026, 9:48:43 pm",
+    "status": "Pending"
+  },
+  {
+    "id": 9,
+    "userId": 1,
+    "name": "Shantanu Wadbude",
+    "email": "shantanuwadbude@gmail.com",
+    "category": "Water Leakage",
+    "location": "hingna A",
+    "description": "..............",
+    "image": "/uploads/1790706932440-256138113.png",
+    "createdAt": "30/9/2026, 12:05:32 am",
+    "status": "Pending"
+  }
+]

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Page Not Found | CleanCity Connect</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="auth-page">
+
+    <!-- Navigation -->
+    <nav class="auth-nav">
+
+        <div class="auth-brand">
+
+            <div class="brand-logo">
+                🌿
+            </div>
+
+            <h2>
+                <span>CleanCity</span> Connect
+            </h2>
+
+        </div>
+
+
+        <div class="auth-nav-links">
+
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#features">Features</a>
+
+        </div>
+
+
+       <div class="auth-nav-actions">
+
+    <% if (currentUser) { %>
+
+        <% if (currentUser.role === "admin") { %>
+
+            <a href="/admin">
+                Admin Dashboard
+            </a>
+
+        <% } else { %>
+
+            <a href="/dashboard">
+                Dashboard
+            </a>
+
+            <a href="/profile">
+                Profile
+            </a>
+
+            <a href="/report">
+                Report Issue
+            </a>
+
+        <% } %>
+
+        <a href="/logout" class="nav-login-button">
+            Logout
+        </a>
+
+    <% } else { %>
+
+        <a href="/login" class="nav-login-button">
+            Login
+        </a>
+
+        <a href="/register" class="nav-register-button">
+            Register
+        </a>
+
+    <% } %>
+
+</div>
+
+    </nav>
+
+
+    <!-- Error Content -->
+    <main class="error-page">
+
+        <div class="error-card">
+
+            <div class="error-icon">
+                🌿
+            </div>
+
+            <div class="error-number">
+                404
+            </div>
+
+            <h1>
+                Page Not Found
+            </h1>
+
+            <p>
+                Sorry, the page you're looking for doesn't exist
+                or may have been moved.
+            </p>
+
+            <a href="/" class="error-home-button">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
