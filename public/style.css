@@ -1676,11 +1676,7 @@ th {
 }
 
 /* Make report action buttons equal */
-.report-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 15px;
-}
+
 
 .report-actions a {
   flex: 1;
@@ -1696,10 +1692,7 @@ th {
 }
 
 /* Back button */
-.report-actions .cancel-profile-btn {
-  background: #6c757d;
-  color: white;
-}
+
 
 /* Edit button */
 .report-actions .edit-report-btn {
@@ -1707,13 +1700,9 @@ th {
   color: white;
 }
 
-.report-actions .cancel-profile-btn:hover {
-  background: #5c636a;
-}
 
-.report-actions .edit-report-btn:hover {
-  background: #0b5ed7;
-}
+
+
 
 /* Final alignment for report action buttons */
 
@@ -6529,10 +6518,7 @@ body.auth-page .password-toggle:hover {
     color: white !important;
 }
 
-.details-edit-button:hover {
-    background: #157347;
-    transform: translateY(-1px);
-}
+
 
 .details-back-button {
     background: #198754;
@@ -6696,53 +6682,21 @@ body.auth-page .password-toggle:hover {
     z-index: 10;
 }
 
-.admin-brand {
-    display: flex;
-    align-items: center;
-    gap: 9px;
 
-    color: #198754 !important;
-    text-decoration: none !important;
 
-    font-size: 20px;
-    font-weight: 700;
-}
 
-.admin-brand-icon {
-    font-size: 27px;
-}
 
-.admin-nav-links {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-}
 
-.admin-nav-links a {
-    color: #475467 !important;
-    text-decoration: none !important;
 
-    font-size: 14px;
-    font-weight: 600;
 
-    transition: 0.2s ease;
-}
 
-.admin-nav-links a:hover {
-    color: #198754 !important;
-}
 
-.admin-nav-links .admin-nav-active {
-    color: #198754 !important;
-}
 
-.admin-nav-links .admin-nav-logout {
-    color: #d64545 !important;
-}
 
-.admin-nav-links .admin-nav-logout:hover {
-    color: #b42318 !important;
-}
+
+
+
+
 
 
 /* =========================================================
@@ -8251,9 +8205,7 @@ body.auth-page .password-toggle:hover {
     background: #f9fcfa;
 }
 
-#reportsTable tbody tr:last-child td {
-    border-bottom: none;
-}
+
 
 
 /* REPORT ID */
@@ -8451,9 +8403,7 @@ body.auth-page .password-toggle:hover {
     transition: 0.15s ease;
 }
 
-.admin-save-button:hover {
-    background: #6d28d9;
-}
+
 
 
 /* UPDATE STATUS */
@@ -8485,9 +8435,7 @@ body.auth-page .password-toggle:hover {
     outline: none;
 }
 
-.admin-update-form select:focus {
-    border-color: #198754;
-}
+
 
 .admin-update-button {
     width: 100%;
@@ -8506,9 +8454,7 @@ body.auth-page .password-toggle:hover {
     transition: 0.15s ease;
 }
 
-.admin-update-button:hover {
-    background: #d97706;
-}
+
 
 
 /* ACTIONS */
@@ -8551,9 +8497,7 @@ body.auth-page .password-toggle:hover {
     color: #ffffff !important;
 }
 
-.admin-view-button:hover {
-    background: #157347;
-}
+
 
 .admin-delete-button {
     border: none;
@@ -8562,9 +8506,7 @@ body.auth-page .password-toggle:hover {
     color: #ffffff;
 }
 
-.admin-delete-button:hover {
-    background: #be123c;
-}
+
 
 
 /* EMPTY STATE */
@@ -8609,20 +8551,14 @@ body.auth-page .password-toggle:hover {
 
 /* COLUMN WIDTHS */
 
-#reportsTable th:nth-child(1),
-#reportsTable td:nth-child(1) {
-    width: 7%;
-}
+
 
 #reportsTable th:nth-child(2),
 #reportsTable td:nth-child(2) {
     width: 13%;
 }
 
-#reportsTable th:nth-child(3),
-#reportsTable td:nth-child(3) {
-    width: 9%;
-}
+
 
 #reportsTable th:nth-child(4),
 #reportsTable td:nth-child(4) {
@@ -8639,10 +8575,7 @@ body.auth-page .password-toggle:hover {
     width: 10%;
 }
 
-#reportsTable th:nth-child(7),
-#reportsTable td:nth-child(7) {
-    width: 8%;
-}
+
 
 #reportsTable th:nth-child(8),
 #reportsTable td:nth-child(8) {
@@ -8654,17 +8587,12 @@ body.auth-page .password-toggle:hover {
     width: 8%;
 }
 
-#reportsTable th:nth-child(10),
-#reportsTable td:nth-child(10) {
-    width: 7%;
-}
+
 
 
 /* HEADER */
 
-#reportsTable thead {
-    background: #f7f9f8;
-}
+
 
 #reportsTable th {
     height: 46px;
@@ -8698,9 +8626,7 @@ body.auth-page .password-toggle:hover {
     font-size: 12px;
 }
 
-#reportsTable tbody tr:hover {
-    background: #f9fcfa;
-}
+
 
 
 /* CITIZEN */
@@ -8765,15 +8691,7 @@ body.auth-page .password-toggle:hover {
 
 /* DATE */
 
-.admin-date {
-    display: block;
 
-    color: #667085;
-    font-size: 10px;
-    line-height: 1.45;
-
-    white-space: normal;
-}
 
 
 /* CATEGORY */
@@ -8992,50 +8910,26 @@ body.auth-page .password-toggle:hover {
 
 /* COLUMN WIDTHS */
 
-#reportsTable th:nth-child(1),
-#reportsTable td:nth-child(1) {
-    width: 7%;
-}
+
 
 #reportsTable th:nth-child(2),
 #reportsTable td:nth-child(2) {
     width: 14%;
 }
 
-#reportsTable th:nth-child(3),
-#reportsTable td:nth-child(3) {
-    width: 9%;
-}
 
-#reportsTable th:nth-child(4),
-#reportsTable td:nth-child(4) {
-    width: 11%;
-}
 
-#reportsTable th:nth-child(5),
-#reportsTable td:nth-child(5) {
-    width: 16%;
-}
 
-#reportsTable th:nth-child(6),
-#reportsTable td:nth-child(6) {
-    width: 10%;
-}
 
-#reportsTable th:nth-child(7),
-#reportsTable td:nth-child(7) {
-    width: 8%;
-}
 
-#reportsTable th:nth-child(8),
-#reportsTable td:nth-child(8) {
-    width: 11%;
-}
 
-#reportsTable th:nth-child(9),
-#reportsTable td:nth-child(9) {
-    width: 8%;
-}
+
+
+
+
+
+
+
 
 #reportsTable th:nth-child(10),
 #reportsTable td:nth-child(10) {
@@ -9084,9 +8978,7 @@ body.auth-page .password-toggle:hover {
     background: #ffffff;
 }
 
-#reportsTable tbody tr:hover {
-    background: #f9fcfa;
-}
+
 
 
 /* REPORT ID */
@@ -9308,9 +9200,7 @@ body.auth-page .password-toggle:hover {
     transition: 0.2s ease;
 }
 
-.admin-save-button:hover {
-    background: #d97706;
-}
+
 
 
 /* UPDATE FORM */
@@ -9348,9 +9238,7 @@ body.auth-page .password-toggle:hover {
     outline: none;
 }
 
-.admin-update-form select:focus {
-    border-color: #198754;
-}
+
 
 .admin-update-button {
     width: 100%;
@@ -9371,9 +9259,7 @@ body.auth-page .password-toggle:hover {
     transition: 0.2s ease;
 }
 
-.admin-update-button:hover {
-    background: #157347;
-}
+
 
 
 /* ACTION BUTTONS */
@@ -9478,40 +9364,22 @@ body.auth-page .password-toggle:hover {
 }
 
 /* Citizen */
-#reportsTable th:nth-child(2),
-#reportsTable td:nth-child(2) {
-    width: 14%;
-}
+
 
 /* Category */
-#reportsTable th:nth-child(3),
-#reportsTable td:nth-child(3) {
-    width: 9%;
-}
+
 
 /* Location */
-#reportsTable th:nth-child(4),
-#reportsTable td:nth-child(4) {
-    width: 10%;
-}
+
 
 /* Description */
-#reportsTable th:nth-child(5),
-#reportsTable td:nth-child(5) {
-    width: 16%;
-}
+
 
 /* Submitted */
-#reportsTable th:nth-child(6),
-#reportsTable td:nth-child(6) {
-    width: 9%;
-}
+
 
 /* Status */
-#reportsTable th:nth-child(7),
-#reportsTable td:nth-child(7) {
-    width: 8%;
-}
+
 
 /* Admin Remark */
 #reportsTable th:nth-child(8),
@@ -9520,16 +9388,10 @@ body.auth-page .password-toggle:hover {
 }
 
 /* Update Status */
-#reportsTable th:nth-child(9),
-#reportsTable td:nth-child(9) {
-    width: 8%;
-}
+
 
 /* Actions */
-#reportsTable th:nth-child(10),
-#reportsTable td:nth-child(10) {
-    width: 7%;
-}
+
 
 
 /* =========================================================
@@ -9579,13 +9441,9 @@ body.auth-page .password-toggle:hover {
     vertical-align: middle;
 }
 
-#reportsTable tbody tr {
-    background: #ffffff;
-}
 
-#reportsTable tbody tr:hover {
-    background: #f9fcfa;
-}
+
+
 
 
 /* =========================================================
@@ -9837,9 +9695,7 @@ body.auth-page .password-toggle:hover {
     transition: 0.2s ease;
 }
 
-.admin-save-button:hover {
-    background: #d97706;
-}
+
 
 
 /* =========================================================
@@ -9916,9 +9772,7 @@ body.auth-page .password-toggle:hover {
     transition: 0.2s ease;
 }
 
-.admin-update-button:hover {
-    background: #157347;
-}
+
 
 
 /* =========================================================
@@ -10433,9 +10287,7 @@ body.auth-page .password-toggle:hover {
 
 /* INDIVIDUAL CARD COLORS */
 
-.admin-stat-card.total .admin-stat-icon {
-    background: #eaf2ff;
-}
+
 
 .admin-stat-card.pending .admin-stat-icon {
     background: #fff4d6;
